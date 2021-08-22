@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - name: Node ${{ matrix.node_version }} - x64 on ${{ matrix.os }}
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2.4.0
         with:
           node-version: ${{ matrix.node_version }}
       - uses: actions/cache@v2.1.6
