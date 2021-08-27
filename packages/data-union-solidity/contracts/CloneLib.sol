@@ -4,6 +4,7 @@ pragma solidity 0.8.6;
 //solhint-disable avoid-low-level-calls
 //solhint-disable no-inline-assembly
 
+/** NOTE: DO NOT MODIFY. This has been audited and test was removed in truffle -> waffle transition */
 library CloneLib {
     /**
      * Returns bytecode of a new contract that clones template

@@ -2,4 +2,9 @@ node_modules
 coverage
 .coverage_contracts
 .coverage_artifacts
-/build
+build
+coverage.json
+artifacts
+deployments
+typechain
+cache

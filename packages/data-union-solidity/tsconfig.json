@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Node 12",
+    "compilerOptions": {
+        "lib": ["es2019", "es2020.promise", "es2020.bigint", "es2020.string"],
+        "module": "CommonJS",
+        "target": "es2019",
+        "preserveSymlinks": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "outDir": "dist"
+    },
+    "include": [
+        "./scripts",
+        "./test",
+        "./typechain",
+        "test-contracts"
+    ],
+    "files": [
+        "./hardhat.config.ts"
+    ]
+}

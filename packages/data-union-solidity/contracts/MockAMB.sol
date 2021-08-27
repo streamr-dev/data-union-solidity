@@ -2,11 +2,12 @@
 
 pragma solidity 0.8.6;
 
+/**
+ * Executes the given message / call on LOCAL blockchain, no bridging, immediately
+ */
 contract MockAMB {
     address public messageSender;
-    /*
-    call on LOCAL blockchain. no bridge
-    */
+
     function requireToPassMessage(
         address _contract,
         bytes memory _data,

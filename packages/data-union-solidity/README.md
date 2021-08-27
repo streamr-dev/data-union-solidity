@@ -84,7 +84,7 @@ Alternatively, you can build this setup from scratch. See https://github.com/str
 
 # Code Samples
 
-Use [libDU](https://github.com/streamr-dev/data-union-solidity/blob/DU-12-move-adminfee-mainnet/util/libDU.js) to deploy DU components:
+Use [libDU](https://github.com/streamr-dev/data-union-solidity/blob/DU-12-move-adminfee-mainnet/test/utils/libDU.js) to deploy DU components:
   - `deployDataUnionFactorySidechain`
   - `deployDataUnionFactoryMainnet`
   - `getTemplateSidechain`

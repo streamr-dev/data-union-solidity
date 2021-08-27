@@ -3,36 +3,46 @@
   "description": "Smart contracts for Data Union with sidechain accounting",
   "version": "0.0.1",
   "scripts": {
-    "clean": "rm -rf build/ && mkdir -p build/contracts",
-    "build": "truffle compile && ./flatten",
-    "deploy": "truffle migrate",
-    "lint": "eslint . && solhint -f unix contracts/**/*.sol",
+    "build": "hardhat compile",
+    "clean": "rm -rf artifacts cache coverage typechain deployments",
+    "coverage": "hardhat coverage",
+    "lint": "eslint test/*.* && solhint contracts/*/*.sol",
     "format": "prettier --no-color --config .prettierrc --write contracts/**/*.sol",
     "format-check": "prettier --no-color --config .prettierrc --check contracts/**/*.sol",
-    "coverage": "truffle run coverage --file=test/contracts/*",
-    "unit-test": "truffle test test/contracts/*",
+    "_coverage": "truffle run coverage --file=test/contracts/*",
+    "unit-test": "hardhat test test/contracts/*",
     "integration-test": "mocha test/e2e --exit",
     "test": "npm run unit-test"
   },
   "author": "Streamr Network AG",
   "license": "AGPL-3.0",
   "devDependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@typechain/ethers-v5": "^6.0.0",
+    "@types/chai": "^4.2.21",
+    "@types/debug": "^4.1.7",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^10.17.54",
+    "chai": "^4.3.4",
+    "chai-bignumber": "^3.0.0",
     "debug": "4.1.1",
     "eslint": "7.22.0",
-    "openzeppelin-solidity": "4.2.0",
+    "ethereum-waffle": "^3.4.0",
+    "hardhat": "^2.6.1",
+    "hardhat-typechain": "^0.3.5",
     "prettier": "2.3.2",
     "prettier-plugin-solidity": "1.0.0-beta.17",
     "solhint": "3.3.6",
     "solhint-plugin-prettier": "0.0.5",
     "solidity-coverage": "^0.7.16",
-    "truffle": "^5.2.5",
-    "truffle-flattener": "^1.4.3",
-    "web3": "^1.2.4"
+    "ts-node": "^10.2.1",
+    "typechain": "^4.0.0",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
     "@openzeppelin/contracts": "4.2.0",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
-    "ethers": "5.0.32"
+    "ethers": "^5.0.0"
   }
 }

@@ -2,9 +2,10 @@
 
 pragma solidity 0.8.6;
 
-import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "./Ownable.sol";
 import "./IERC677.sol";
+import "./IERC677Receiver.sol";
 
 /**
  * Mintable TestToken for contract tests
@@ -33,19 +34,23 @@ contract TestToken is ERC20, Ownable, IERC677 {
                amount == 777 ? true : super.transferFrom(from, to, amount);
     }
 
-    // This is needed to check how sending to mainnet works
-    // Must trigger both branches of
-    //   require(token.transferAndCall(tokenMediator, amount, toBytes(to)), "error_transfer");
-    // So returns false if amount = 666
     function transferAndCall(
         address to,
         uint256 amount,
         bytes calldata data
     ) external override returns (bool) {
-        if(amount == 666 || !transfer(to, amount))
+        if (!transfer(to, amount)) {
             return false;
-        // solhint-disable-next-line
-        (bool success,) = to.call(abi.encodeWithSignature("onTokenTransfer(address,uint256,bytes)", msg.sender, amount, data));
-        return success;
+        }
+
+        uint256 recipientCodeSize;
+        assembly {
+            recipientCodeSize := extcodesize(to)
+        }
+        if (recipientCodeSize > 0) {
+            IERC677Receiver receiver = IERC677Receiver(to);
+            receiver.onTokenTransfer(msg.sender, amount, data);
+        }
+        return true;
     }
 }

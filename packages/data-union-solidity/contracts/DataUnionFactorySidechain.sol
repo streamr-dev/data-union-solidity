@@ -2,11 +2,11 @@
 
 pragma solidity 0.8.6;
 
-import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./CloneLib.sol";
 import "./IAMB.sol";
 import "./ITokenMediator.sol";
-// TODO: switch to "openzeppelin-solidity/contracts/access/Ownable.sol";
+// TODO: switch to "@openzeppelin/contracts/access/Ownable.sol";
 import "./Ownable.sol";
 
 contract DataUnionFactorySidechain is Ownable {

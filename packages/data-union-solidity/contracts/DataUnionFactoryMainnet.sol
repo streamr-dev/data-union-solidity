@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.6;
 
-import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./CloneLib.sol";
 import "./IAMB.sol";
 import "./ITokenMediator.sol";

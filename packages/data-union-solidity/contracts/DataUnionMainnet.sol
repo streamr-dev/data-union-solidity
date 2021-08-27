@@ -2,15 +2,16 @@
 
 pragma solidity 0.8.6;
 
-import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
- // TODO: switch to "openzeppelin-solidity/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+ // TODO: switch to "@openzeppelin/contracts/access/Ownable.sol";
 import "./Ownable.sol";
 import "./PurchaseListener.sol";
 import "./CloneLib.sol";
 import "./IAMB.sol";
 import "./ITokenMediator.sol";
+import "./IERC677Receiver.sol";
 
-contract DataUnionMainnet is Ownable, PurchaseListener {
+contract DataUnionMainnet is Ownable, PurchaseListener, IERC677Receiver {
 
     event RevenueReceived(uint256 amount);
 
@@ -104,10 +105,9 @@ contract DataUnionMainnet is Ownable, PurchaseListener {
      * Sends the tokens arriving through a transferAndCall to the sidechain (ignore arguments/calldata)
      * Only the token contract is authorized to call this function
      */
-    function onTokenTransfer(address, uint256, bytes calldata) external returns (bool success) {
-        if (msg.sender != address(tokenMainnet)) { return false; }
+    function onTokenTransfer(address, uint256, bytes calldata) override external {
+        require(msg.sender == address(tokenMainnet), "error_onlyTokenContract");
         sendTokensToBridge();
-        return true;
     }
 
     //function onPurchase(bytes32 productId, address subscriber, uint256 endTimestamp, uint256 priceDatacoin, uint256 feeDatacoin)

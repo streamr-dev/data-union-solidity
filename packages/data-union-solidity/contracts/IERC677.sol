@@ -2,19 +2,19 @@
 
 pragma solidity 0.8.6;
 
-import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 interface IERC677 is IERC20 {
+    function transferAndCall(
+        address to,
+        uint value,
+        bytes calldata data
+    ) external returns (bool success);
+
     event Transfer(
         address indexed from,
         address indexed to,
-        uint256 value,
+        uint value,
         bytes data
     );
-
-    function transferAndCall(
-        address,
-        uint256,
-        bytes calldata
-    ) external returns (bool);
 }

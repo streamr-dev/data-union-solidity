@@ -7,10 +7,10 @@ const {
 const log = require("debug")("Streamr:du:libDU")
 const until = require("./await-until")
 
-const DataUnionMainnet = require("../build/contracts/DataUnionMainnet.json")
-const DataUnionSidechain = require("../build/contracts/DataUnionSidechain.json")
-const DataUnionFactorySidechain = require("../build/contracts/DataUnionFactorySidechain.json")
-const DataUnionFactoryMainnet = require("../build/contracts/DataUnionFactoryMainnet.json")
+const DataUnionMainnet = require("../../artifacts/contracts/DataUnionMainnet.sol/DataUnionMainnet.json")
+const DataUnionSidechain = require("../../artifacts/contracts/DataUnionSidechain.sol/DataUnionSidechain.json")
+const DataUnionFactorySidechain = require("../../artifacts/contracts/DataUnionFactorySidechain.sol/DataUnionFactorySidechain.json")
+const DataUnionFactoryMainnet = require("../../artifacts/contracts/DataUnionFactoryMainnet.sol/DataUnionFactoryMainnet.json")
 
 let templateSidechain
 

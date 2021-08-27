@@ -7,14 +7,14 @@ const HOME_ERC677 = "0x73Be21733CC5D08e1a14Ea9a399fb27DB3BEf8fF"
 // const HOME_MULTIMEDIATOR = "0x41B89Db86BE735c03A9296437E39F5FDAdC4c678"
 // const FOREIGN_MULTIMEDIATOR = "0x6346Ed242adE018Bd9320D5E3371c377BAB29c31"
 
-const Token = require("../../build/contracts/IERC20.json")
-const DataUnionSidechain = require("../../build/contracts/DataUnionSidechain.json")
-const DataUnionMainnet = require("../../build/contracts/DataUnionMainnet.json")
+const Token = require("../../artifacts/@openzeppelin/contracts/token/ERC20/ERC20.sol/ERC20.json")
+const DataUnionSidechain = require("../../artifacts/contracts/DataUnionSidechain.sol/DataUnionSidechain.json")
+const DataUnionMainnet = require("../../artifacts/contracts/DataUnionMainnet.sol/DataUnionMainnet.json")
 
-const ITokenMediator = require("../../build/contracts/ITokenMediator.json")
-// const IMultiTokenMediator = require("../../build/contracts/IMultiTokenMediator.json")
-const IAMB = require("../../build/contracts/IAMB.json")
-// const TestToken = require("../../build/contracts/TestToken.json")
+const ITokenMediator = require("../../artifacts/contracts/ITokenMediator.sol/ITokenMediator.json")
+// const IMultiTokenMediator = require("../../artifacts/contracts/IMultiTokenMediator.sol/IMultiTokenMediator.json")
+const IAMB = require("../../artifacts/contracts/IAMB.sol/IAMB.json")
+// const TestToken = require("../../artifacts/contracts/TestToken.sol/TestToken.json")
 const {
     Contract,
     // ContractFactory,
@@ -25,7 +25,7 @@ const {
 } = require("ethers")
 
 const assert = require("assert")
-const until = require("../../util/await-until")
+const until = require("../utils/await-until")
 const {
     requiredSignaturesHaveBeenCollected,
     transportSignatures,
@@ -39,7 +39,7 @@ const {
     deployDataUnionFactorySidechain,
     deployDataUnionFactoryMainnet,
     getTemplateSidechain,
-} = require("../../util/libDU")
+} = require("../utils/libDU")
 
 const providerSidechain = new JsonRpcProvider({
     url: "http://10.200.10.1:8546",
