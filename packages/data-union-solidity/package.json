@@ -30,7 +30,7 @@
     "web3": "^1.2.4"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "4.2.0",
+    "@openzeppelin/contracts": "4.3.1",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "ethers": "5.0.32"
