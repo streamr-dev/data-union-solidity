@@ -19,7 +19,7 @@
   "devDependencies": {
     "debug": "4.1.1",
     "eslint": "7.22.0",
-    "openzeppelin-solidity": "4.2.0",
+    "openzeppelin-solidity": "4.3.1",
     "prettier": "2.3.2",
     "prettier-plugin-solidity": "1.0.0-beta.17",
     "solhint": "3.3.6",
